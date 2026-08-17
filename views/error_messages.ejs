@@ -1,13 +1,13 @@
 <% if (typeof errorMessage === 'undefined') { var errorMessage = []; } %>
 <% if(errorMessage.length != 0){ %>
-  <div>
-    <strong>Warning!</strong> The form contains <%= errorMessage.length %> errors.
-  </div>
-  <div>
-    <ul>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>⚠️ エラーが発生しました</strong> - <%= errorMessage.length %>件のエラーがあります。
+    <hr>
+    <ul class="error-list mb-0">
       <% for(let item of errorMessage){ %>
         <li><%= item %></li>
       <% } %>
     </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 <% } %>
