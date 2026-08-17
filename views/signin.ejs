@@ -1,21 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= title %></title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
-<%- include('./error_messages'); %>
-<form action="/signin" method="post">
-  <label>ユーザ名</label>
-  <input required type="text" name="username"/>
-  <br>
-  <label>パスワード</label>
-  <input required type="password" name="password"/>
-  <br>
-  <input type="submit" value="Sign in"/>
-</form>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        🔐 サインイン
+      </div>
+      <div class="card-body">
+        <%- include('./error_messages'); %>
+        
+        <form action="/signin" method="post">
+          <div class="mb-3">
+            <label for="username" class="form-label">ユーザ名</label>
+            <input 
+              required 
+              type="text" 
+              id="username"
+              name="username" 
+              class="form-control"
+              placeholder="ユーザ名を入力"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">パスワード</label>
+            <input 
+              required 
+              type="password" 
+              id="password"
+              name="password" 
+              class="form-control"
+              placeholder="パスワードを入力"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">
+            サインイン
+          </button>
+        </form>
+
+        <div class="auth-link">
+          アカウントがありませんか？ 
+          <a href="/signup">新規登録</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
